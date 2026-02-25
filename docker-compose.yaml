@@ -1,0 +1,52 @@
+services:
+  rate-limit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rate-limit
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    ports:
+      - 8080:8080
+    networks:
+      - rate-limit-network
+
+  redis:
+    image: redis:7.0.12
+    container_name: redis
+    networks:
+      - rate-limit-network
+
+  stress-ip:
+    user: "1000"
+    image: grafana/k6:0.48.0
+    container_name: stress-ip
+    env_file:
+      - .env
+    command: run -q --vus 1 --duration 60s --rps 25 /home/k6/stress/k6-script.js
+    depends_on:
+      - rate-limit
+    volumes:
+      - ./stress:/home/k6/stress
+    networks:
+      - rate-limit-network
+
+  stress-token:
+    user: "1000"
+    image: grafana/k6:0.48.0
+    container_name: stress-token
+    env_file:
+      - .env
+    command: run -q --vus 1 --duration 60s --rps 25 /home/k6/stress/k6-script-token.js
+    depends_on:
+      - rate-limit
+    volumes:
+      - ./stress:/home/k6/stress
+    networks:
+      - rate-limit-network
+
+networks:
+  rate-limit-network:
+    driver: bridge
