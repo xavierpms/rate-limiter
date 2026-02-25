@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Summary - Token limiter</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 24px; color: #1f2937; }
+        h1 { margin-bottom: 8px; }
+        .subtitle { color: #4b5563; margin-bottom: 20px; }
+        .cards { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+        .card { border: 1px solid #d1d5db; border-radius: 8px; padding: 10px 12px; min-width: 180px; }
+        .card .label { font-size: 12px; color: #6b7280; }
+        .card .value { font-size: 20px; font-weight: bold; margin-top: 4px; }
+        .status { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: bold; }
+        .status-ok { background: #dcfce7; color: #166534; }
+        .status-warn { background: #fef3c7; color: #92400e; }
+        .status-alert { background: #fee2e2; color: #991b1b; }
+        .status-na { background: #e5e7eb; color: #374151; }
+        .top3 { margin: 18px 0 14px 0; border: 1px solid #d1d5db; border-radius: 8px; padding: 10px 12px; }
+        .top3 h2 { margin: 0 0 8px 0; font-size: 16px; }
+        .top3 ul { margin: 0; padding-left: 18px; }
+        .top3 li { margin: 4px 0; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { border: 1px solid #d1d5db; padding: 8px; text-align: left; }
+        th { background: #f3f4f6; }
+    </style>
+</head>
+<body>
+    <h1>Summary - Token limiter</h1>
+    <div class="subtitle">Target: http://rate-limit:8080/hello | Token: Token20</div>
+
+    <div class="cards">
+        <div class="card"><div class="label">Total Requests</div><div class="value">1499</div></div>
+        <div class="card"><div class="label">Failure Rate</div><div class="value">0.1995 <span class="status status-warn">ATENÇÃO</span></div></div>
+        <div class="card"><div class="label">P95 Duration (ms)</div><div class="value">3.820 <span class="status status-ok">OK</span></div></div>
+        <div class="card"><div class="label">Avg Iteration (ms)</div><div class="value">40.019</div></div>
+    </div>
+
+    <section class="top3">
+        <h2>Top 3 métricas-chave</h2>
+        <ul>
+            <li>Total Requests: <strong>1499</strong></li>
+            <li>Failure Rate: <strong>0.1995</strong> (ATENÇÃO)</li>
+            <li>P95 Duration: <strong>3.820 ms</strong> (OK)</li>
+        </ul>
+    </section>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Count</th>
+                <th>Rate</th>
+                <th>Avg</th>
+                <th>Median</th>
+                <th>P95</th>
+                <th>Max</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+        <td>http_reqs</td>
+        <td>1499</td>
+        <td>24.9719</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+            <tr>
+        <td>http_req_failed</td>
+        <td>-</td>
+        <td>0.1995</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+            <tr>
+        <td>http_req_duration (ms)</td>
+        <td>-</td>
+        <td>-</td>
+        <td>2.182</td>
+        <td>2.022</td>
+        <td>3.820</td>
+        <td>41.681</td>
+    </tr>
+            <tr>
+        <td>iteration_duration (ms)</td>
+        <td>-</td>
+        <td>-</td>
+        <td>40.019</td>
+        <td>39.975</td>
+        <td>42.160</td>
+        <td>121.365</td>
+    </tr>
+            <tr>
+        <td>data_received (bytes)</td>
+        <td>225715</td>
+        <td>3760.1876</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+            <tr>
+        <td>data_sent (bytes)</td>
+        <td>155896</td>
+        <td>2597.0725</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+        </tbody>
+    </table>
+</body>
+</html>

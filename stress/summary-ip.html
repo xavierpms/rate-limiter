@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>summary - IP limiter</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 24px; color: #1f2937; }
+        h1 { margin-bottom: 8px; }
+        .subtitle { color: #4b5563; margin-bottom: 20px; }
+        .cards { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+        .card { border: 1px solid #d1d5db; border-radius: 8px; padding: 10px 12px; min-width: 180px; }
+        .card .label { font-size: 12px; color: #6b7280; }
+        .card .value { font-size: 20px; font-weight: bold; margin-top: 4px; }
+        .status { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: bold; }
+        .status-ok { background: #dcfce7; color: #166534; }
+        .status-warn { background: #fef3c7; color: #92400e; }
+        .status-alert { background: #fee2e2; color: #991b1b; }
+        .status-na { background: #e5e7eb; color: #374151; }
+        .top3 { margin: 18px 0 14px 0; border: 1px solid #d1d5db; border-radius: 8px; padding: 10px 12px; }
+        .top3 h2 { margin: 0 0 8px 0; font-size: 16px; }
+        .top3 ul { margin: 0; padding-left: 18px; }
+        .top3 li { margin: 4px 0; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { border: 1px solid #d1d5db; padding: 8px; text-align: left; }
+        th { background: #f3f4f6; }
+    </style>
+</head>
+<body>
+    <h1>Summary - IP limiter</h1>
+    <div class="subtitle">Target: http://rate-limit:8080/hello</div>
+
+    <div class="cards">
+        <div class="card"><div class="label">Total Requests</div><div class="value">1497</div></div>
+        <div class="card"><div class="label">Failure Rate</div><div class="value">0.5992 <span class="status status-alert">ALERTA</span></div></div>
+        <div class="card"><div class="label">P95 Duration (ms)</div><div class="value">3.707 <span class="status status-ok">OK</span></div></div>
+        <div class="card"><div class="label">Avg Iteration (ms)</div><div class="value">40.054</div></div>
+    </div>
+
+    <section class="top3">
+        <h2>Top 3 métricas-chave</h2>
+        <ul>
+            <li>Total Requests: <strong>1497</strong></li>
+            <li>Failure Rate: <strong>0.5992</strong> (ALERTA)</li>
+            <li>P95 Duration: <strong>3.707 ms</strong> (OK)</li>
+        </ul>
+    </section>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Count</th>
+                <th>Rate</th>
+                <th>Avg</th>
+                <th>Median</th>
+                <th>P95</th>
+                <th>Max</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+        <td>http_reqs</td>
+        <td>1497</td>
+        <td>24.9491</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+            <tr>
+        <td>http_req_failed</td>
+        <td>-</td>
+        <td>0.5992</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+            <tr>
+        <td>http_req_duration (ms)</td>
+        <td>-</td>
+        <td>-</td>
+        <td>1.999</td>
+        <td>1.826</td>
+        <td>3.707</td>
+        <td>47.934</td>
+    </tr>
+            <tr>
+        <td>iteration_duration (ms)</td>
+        <td>-</td>
+        <td>-</td>
+        <td>40.054</td>
+        <td>39.982</td>
+        <td>42.062</td>
+        <td>150.130</td>
+    </tr>
+            <tr>
+        <td>data_received (bytes)</td>
+        <td>251145</td>
+        <td>4185.6031</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+            <tr>
+        <td>data_sent (bytes)</td>
+        <td>128742</td>
+        <td>2145.6247</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+        </tbody>
+    </table>
+</body>
+</html>
